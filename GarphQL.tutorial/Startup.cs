@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using GarphQL.tutorial.GraphQL.Platforms;
 
 namespace GarphQL.tutorial
 {
@@ -35,6 +36,7 @@ namespace GarphQL.tutorial
             services
                 .AddGraphQLServer()
                      .AddQueryType<QueryTest>()
+                     .AddType<PlatformType>()
                      .AddProjections();
         }
 
