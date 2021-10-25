@@ -25,7 +25,7 @@ namespace GarphQL.tutorial.GraphQL.Platforms
         }
         private class Resolvers
         {
-            public IQueryable<Command> GetCommands(Platform platform, [ScopedService] AppDbContext context)
+            public IQueryable<Command> GetCommands([Parent] Platform platform,[ScopedService] AppDbContext context)
             {
                 return context.TCommands.Where(p => p.PlatformId == platform.Id);
             }
