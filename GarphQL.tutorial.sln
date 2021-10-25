@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31702.278
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GarphQL.tutorial", "GarphQL.tutorial\GarphQL.tutorial.csproj", "{B02D2ACE-A840-468A-9EED-236520468B3A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B02D2ACE-A840-468A-9EED-236520468B3A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B02D2ACE-A840-468A-9EED-236520468B3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B02D2ACE-A840-468A-9EED-236520468B3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B02D2ACE-A840-468A-9EED-236520468B3A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4020201F-01B4-44DC-A4DC-3D0F448A0696}
+	EndGlobalSection
+EndGlobal
