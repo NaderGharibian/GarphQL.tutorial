@@ -11,13 +11,17 @@ namespace GarphQL.tutorial.GraphQL
     public class QueryTest
     {
         [UseDbContext(typeof(AppDbContext))]
-        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
+       // [UseProjection]
         public IQueryable<Platform> GetPlatform([ScopedService] AppDbContext context)
         {
             return context.TPlatforms;
         }
         [UseDbContext(typeof(AppDbContext))]
-        [UseProjection]
+        [UseFiltering]
+        [UseSorting]
+        // [UseProjection]
         public IQueryable<Command> GetCommand([ScopedService] AppDbContext context)
         {
             return context.TCommands;

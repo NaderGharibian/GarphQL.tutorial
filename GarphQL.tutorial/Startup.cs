@@ -1,6 +1,6 @@
 using GarphQL.tutorial.Data;
 using GarphQL.tutorial.GraphQL;
-using voyager= GraphQL.Server.Ui.Voyager ;
+using voyager = GraphQL.Server.Ui.Voyager;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -8,6 +8,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using GarphQL.tutorial.GraphQL.Platforms;
+using GarphQL.tutorial.GraphQL.Commands;
 
 namespace GarphQL.tutorial
 {
@@ -36,8 +37,14 @@ namespace GarphQL.tutorial
             services
                 .AddGraphQLServer()
                      .AddQueryType<QueryTest>()
+                     .AddMutationType<Mutation>()
+                     .AddSubscriptionType<Subscription>()
                      .AddType<PlatformType>()
-                     .AddProjections();
+                     .AddType<CommandType>()
+                     .AddFiltering()
+                     .AddSorting()
+                     .AddProjections()
+                     .AddInMemorySubscriptions();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -46,12 +53,12 @@ namespace GarphQL.tutorial
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            //    app.UseSwagger();
-            //    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GarphQL.tutorial v1"));
+                //    app.UseSwagger();
+                //    app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "GarphQL.tutorial v1"));
             }
 
             //app.UseHttpsRedirection();
-
+            app.UseWebSockets();
             app.UseRouting();
 
             //app.UseAuthorization();
@@ -61,7 +68,7 @@ namespace GarphQL.tutorial
                 endpoints.MapGraphQL();
             });
 
-            app.UseGraphQLVoyager( new voyager.VoyagerOptions
+            app.UseGraphQLVoyager(new voyager.VoyagerOptions
             {
                 GraphQLEndPoint = "/graphql"
             }, path: "/graphql-voyager");
